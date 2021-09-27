@@ -29,13 +29,6 @@ export const HomeScreen = ({navigation}) => {
         keyExtractor={(item, index) => index.toString()}
         numColumns={3}
       />
-      
-      <Button
-        title="Detail画面に遷移する"
-        onPress={() => {
-          navigation.navigate('Detail');
-        }}
-      />
     </View>
   );
 }

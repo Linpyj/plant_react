@@ -1,32 +1,30 @@
 import React, {useEffect, useState} from 'react';
-import { StyleSheet, View, Button, FlatList, Text } from 'react-native';
+import { StyleSheet, View, Button, FlatList, Text, TextInput, KeyboardAvoidingView } from 'react-native';
 import * as firebase from 'firebase';
 import "firebase/firestore";
 import { TextArea } from '../components/TextArea';
 
 export const CreateReviewScreen = ({navigation}) => {
-  const [text, setText] = useState('')
-  useEffect(() => {
-    getFirebaseItems();
-  }, [])
-
-  const getFirebaseItems = async() => {
-    const snapShot = await firebase.firestore().collection("shops").get();
-    const shops = snapShot.docs.map(doc => doc.data());
-    setShops(shops);
-  }
-
+  const [ text, setText ] = useState('');
   return (
-    <View style={styles.container}>
-      
-      
-      <Button
-        title="Detail画面に遷移する"
-        onPress={() => {
-          navigation.navigate('Detail');
+    <KeyboardAvoidingView
+      style={styles.container}
+    >
+      <Text style={styles.formLabel}>やること</Text>
+      <TextInput
+        style={styles.formControl}
+        value={text}
+        multiline
+        placeholder="何かやること"
+        onChangeText={(text) => {
+          setText(text);
         }}
       />
-    </View>
+      <Button
+        title="保存します"
+        mode="contained"
+      />
+    </KeyboardAvoidingView>
   );
 }
 
@@ -47,8 +45,18 @@ if (!firebase.apps.length) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    // height: 40,
+  },
+  formLabel: {
+    paddingRight: 16,
+  },
+  formControl: {
+    height: 40,
+    width: '80%',
+    padding: 8,
+    borderColor: 'gray',
+    borderWidth: 1
   }
 });

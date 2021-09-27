@@ -28,13 +28,6 @@ export const DetailScreen = ({navigation, route}) => {
           navigation.navigate("CreateReview", {shop})
         }}
       />
-      
-      <Button
-        title="Home画面に遷移する"
-        onPress={() => {
-          navigation.navigate('Home');
-        }}
-      />
     </View>
   );
 }
