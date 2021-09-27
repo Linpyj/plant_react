@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { StyleSheet, View, Button, FlatList } from 'react-native';
+import { StyleSheet, View, Button, FlatList, Text } from 'react-native';
 import * as firebase from 'firebase';
 import "firebase/firestore";
 import { ShopReviewItem } from '../components/ShopReviewItem';

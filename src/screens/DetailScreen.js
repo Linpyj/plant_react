@@ -5,8 +5,6 @@ import { FloatingActionButton} from '../components/FloatingActionButton';
 
 export const DetailScreen = ({navigation, route}) => {
   const { shop } = route.params;
-  // console.log(sho@)
-  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View>
@@ -24,23 +22,17 @@ export const DetailScreen = ({navigation, route}) => {
       >
         {shop.place}
       </Text>
-      <Button
-        title="open modal"
-        onPress={() => {
-          setModalVisible(true);
-        }}
-      />
       <FloatingActionButton
         iconName="plus"
         onPress = {() => {
-          navigation.navigate("CreateReview")
+          navigation.navigate("CreateReview", {shop})
         }}
       />
       
       <Button
         title="Home画面に遷移する"
         onPress={() => {
-          navigation.navigate('CreateReview');
+          navigation.navigate('Home');
         }}
       />
     </View>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { StyleSheet, View, Button, FlatList } from 'react-native';
+import { StyleSheet, View, Button, FlatList, Text } from 'react-native';
 import * as firebase from 'firebase';
 import "firebase/firestore";
 import { TextArea } from '../components/TextArea';
@@ -18,10 +18,7 @@ export const CreateReviewScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <TextArea
-        value={text}
-        onChangeText={(value) => setText(value)}
-      />
+      
       
       <Button
         title="Detail画面に遷移する"
